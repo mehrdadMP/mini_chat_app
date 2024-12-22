@@ -13,7 +13,8 @@ class XiaomiNote9S extends StatelessWidget {
     super.key,
     required this.home,
     this.debugShowCheckedModeBanner = true,
-    required this.enableStatusBar, required Scaffold child,
+    required this.enableStatusBar,
+    //required Scaffold child,
   });
 
   @override
