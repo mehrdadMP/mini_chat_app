@@ -1,11 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:minimal_chat_application/components/my_button.dart';
 import 'package:minimal_chat_application/components/my_textfield.dart';
 
 class LoginPage extends StatelessWidget {
-  const LoginPage({super.key});
+  //Email and Password text Controller
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+  LoginPage({super.key});
+
+  //Login method
+  void login() {}
 
   @override
   Widget build(BuildContext context) {
+    final ColorScheme colorScheme = Theme.of(context).colorScheme;
     return Scaffold(
       body: SizedBox.expand(
         child: Padding(
@@ -18,7 +26,7 @@ class LoginPage extends StatelessWidget {
               Icon(
                 Icons.message,
                 size: 60,
-                color: Theme.of(context).colorScheme.primary,
+                color: colorScheme.primary,
               ),
               //welcome message
               SizedBox(
@@ -28,28 +36,58 @@ class LoginPage extends StatelessWidget {
                 'Welcome to chat!',
                 style: TextStyle(
                   fontSize: 16,
-                  color: Theme.of(context).colorScheme.primary,
+                  color: colorScheme.primary,
                 ),
               ),
               //email text field
               SizedBox(
                 height: 55,
               ),
-              MyTextField(),
+              MyTextField(
+                hintText: "Email",
+                obscureText: false,
+                controller: emailController,
+              ),
               //password text field
               SizedBox(
                 height: 10,
               ),
-              MyTextField(),
-          
+              MyTextField(
+                hintText: "Password",
+                obscureText: true,
+                controller: passwordController,
+              ),
+
               //login button
-          
+              SizedBox(
+                height: 20,
+              ),
+              MyButton(
+                text: "Login",
+                fontWeight: FontWeight.w400,
+                onTap: login,
+              ),
               //register
+              SizedBox(
+                height: 15,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text("Not a member? "),
+                  InkWell(
+                    child: Text(
+                      "Register now",
+                      style: TextStyle(color: colorScheme.onPrimary,fontWeight: FontWeight.w500),
+                    ),
+                  )
+                ],
+              )
             ],
           ),
         ),
       ),
-      backgroundColor: Theme.of(context).colorScheme.surface,
+      backgroundColor: colorScheme.surface,
     );
   }
 }

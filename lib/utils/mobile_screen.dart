@@ -124,7 +124,7 @@ class _StatusBar extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          _TimeAndNetworkBitRate(),
+          //_TimeAndNetworkBitRate(),
           Row(
             children: [
               Icon(
